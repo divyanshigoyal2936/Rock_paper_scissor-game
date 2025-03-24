@@ -1,0 +1,46 @@
+import random
+
+score_of_computer=0
+score_of_you=0
+
+def game(): 
+
+  global score_of_computer, score_of_you
+  print("you need to choose any of the following integer:")
+  cp = [0,1,2]
+  c = random.choice(cp)
+
+  pl = ['rock(0)','scissor(1)' ,'paper(2)']
+  for i in pl:
+    print(i)
+
+  p=int(input("enter the no. : "))
+  while not (p>=0 and p<3) :
+    p=(int(input("enter the valid no. from the given no. :")))
+    
+  print("computer choose : ",c)
+
+# Game logic
+  if c==p:
+    print("it's a tie 🙃!")
+    
+# c = computer & p = user           
+  elif (p+c==1 and p-c==-1) or (p+c==3 and p-c==-1) or (c+p==2 and c-p==-2):
+    print("you win 🥳!")
+    score_of_you += 1
+            
+  else:
+       print("you loose 😔!")
+       score_of_computer += 1
+# play()
+
+while True:
+    game()
+    
+    play = input("\nDo you want to play again? (1 for Yes, 0 for No): ")
+    if play == "0":
+        print("\nFinal Scores:")
+        print("Your Score:", score_of_you )
+        print("Computer Score:", score_of_computer)
+        print("Thanks for playing! 😊")
+        break
